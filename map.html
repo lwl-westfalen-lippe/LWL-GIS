@@ -16,7 +16,14 @@
     <!--dojo config settings-->
     <script type="text/javascript">
       var dojoConfig = {
-        parseOnLoad: true
+        async: true,
+        parseOnLoad: true,
+        packages: [
+          {
+            name: "data",
+            location: location.pathname.replace(/\/[^/]*$/, '') + '/js/modules'
+          }
+        ]
       };
     </script>
 
