@@ -52,6 +52,10 @@
 	display: none;
 }
 
+#eigenePane {
+	display: none;
+}
+
 .submenuArrow {
 	height: 10px;
 }

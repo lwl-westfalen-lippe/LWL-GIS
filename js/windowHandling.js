@@ -99,8 +99,10 @@ function switchLayerPane(toClassPane){
 	else if (toClassPane === 'demographisch'){
 		$('#demographischPane').slideDown('slow');
 		$('#soziographischPane').slideUp('slow');
+		$('#eigenePane').slideUp('slow');
 		openArrow('arrowDemographisch');
 		closeArrow('arrowSoziographisch');
+		closeArrow('arrowEigene');
 	}
 	if (toClassPane === 'soziographisch' && document.getElementById('soziographischPane').style.display === 'block') {
 		$('#soziographischPane').slideUp('slow');
@@ -109,7 +111,29 @@ function switchLayerPane(toClassPane){
 	else if (toClassPane === 'soziographisch'){
 		$('#soziographischPane').slideDown('slow');
 		$('#demographischPane').slideUp('slow');
+		$('#eigenePane').slideUp('slow');
 		openArrow('arrowSoziographisch');
 		closeArrow('arrowDemographisch');
+		closeArrow('arrowEigene');
+	}
+	if (toClassPane === 'eigene' && document.getElementById('eigenePane').style.display === 'block') {
+		$('#eigenePane').slideUp('slow');
+		closeArrow('arrowEigene');
+	}
+	else if (toClassPane === 'eigene'){
+		$('#eigenePane').slideDown('slow');
+		$('#demographischPane').slideUp('slow');
+		$('#soziographischPane').slideUp('slow');
+		openArrow('arrowEigene');
+		closeArrow('arrowDemographisch');
+		closeArrow('arrowSoziographisch');
 	}
 }
+
+require(["dijit/Dialog", "dojo/domReady!"], function(Dialog){
+    myDialog = new Dialog({
+        title: "Neues Thema anlegen",
+        href: "/webgis/new.html",
+        draggable: false
+    });
+});

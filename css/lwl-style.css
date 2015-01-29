@@ -285,3 +285,17 @@ font-weight:bold;
 	height: inherit;
 	width: inherit;
 }
+
+.dijitDialog {
+	width: 80%;
+	left: 10%;
+	right: 10%;
+	top: 10%;
+	bottom: 10%;
+	height: 80%;
+}
+
+.dijitDialogPaneContent {
+  width: 100% !important;
+  height: 100% !important;
+}
