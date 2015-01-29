@@ -52,7 +52,14 @@ function quantile(yearInd, number, colorStart, colorEnd) {
 
   console.log('classification: quantile');
   activeClassification = 3;
+
+  require(['data/DataHandling'], function (DataHandling) {
+    test = DataHandling.getLayerData(currentDataframe, yearIndex);
+    console.log(test);
+  });
+
   classificationArray = getLayerData(currentDataframe, yearIndex); // jshint ignore:line
+
   var colorArray = generateColor(colorStart, colorEnd, number); // jshint ignore:line
 
   classificationArray.sort(function(a,b){

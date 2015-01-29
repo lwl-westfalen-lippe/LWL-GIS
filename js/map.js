@@ -183,7 +183,8 @@ function onLoadCheck() {
 function colorizeLayer(colorArray){
   require(['esri/symbols/SimpleFillSymbol',
            'esri/renderers/UniqueValueRenderer',
-           'esri/Color'], function(SimpleFillSymbol, UniqueValueRenderer, Color) {
+           'esri/Color',
+           'data/DataHandling'], function(SimpleFillSymbol, UniqueValueRenderer, Color, DataHandling) {
     var defaultSymbol = new SimpleFillSymbol().setColor(new Color([255,255,255,0.5]));
 
     var renderer = new UniqueValueRenderer(defaultSymbol, 'Kreisname');
@@ -195,6 +196,9 @@ function colorizeLayer(colorArray){
     featureLayer.redraw();
 
     var minmax = getMinMax(datenEinwohner);
+
+    bla = DataHandling.getMinMax(datenEinwohner);
+    test = DataHandling.getMinMax(datenEinwohner,2);
 
     addLegendItems(legendArray); //update the Legend
   });
