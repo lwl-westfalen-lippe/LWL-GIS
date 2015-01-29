@@ -123,6 +123,10 @@
 	cursor: help;
 }
 
+.enabled {
+	cursor: pointer;
+}
+
 .disabled {
 	pointer-events: none;
   cursor: default;
@@ -151,4 +155,8 @@
   zoom:1;              /* for IE7*/
   vertical-align:middle;
   margin-left:20px;
+}
+
+.gridview {
+	cursor: pointer;
 }

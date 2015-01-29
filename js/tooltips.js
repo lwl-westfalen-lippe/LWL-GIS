@@ -257,6 +257,24 @@ function addTooltips() {
       showDelay: 0
     });
 
+    //Kopiere Farbwerte
+    new Tooltip({
+      connectId: ['copyColorRange'],
+      label: 'Kopiert die Farbwerte aus dem anderen Kartenfenster.',
+      showDelay: 0
+    });
+
+    query('.copyColorRange').on('click', function(e) {
+      var colors = [];
+      if (self.name === 'frame1') {
+        colors = parent.frames[1].getColor();
+      } else if (self.name === 'frame2') {
+        colors = parent.frames[0].getColor();
+      }
+      document.getElementById('eqBrStartColor').color.fromString(colors[0]);
+      document.getElementById('eqBrEndColor').color.fromString(colors[1]);
+    });
+
     //Klassifikationsmethode
     new Tooltip({
       connectId: ['klassifikationsInfo'],

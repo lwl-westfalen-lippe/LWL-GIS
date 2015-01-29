@@ -65,6 +65,7 @@ var fLGemeinde = 'https://services1.arcgis.com/W47q82gM5Y2xNen1/arcgis/rest/serv
  * in split mode, synchronize zoom levels between both frames
  */
 function syncZoom(extent) {
+  console.log(self.name);
   for (var i = 0; i < parent.frames.length; i++) {
     if (parent.frames[i].name !== self.name) {
       try {
@@ -169,6 +170,7 @@ function onLoadCheck() {
     // document.getElementById('welcomeBackground').style.display = 'block';
   }
   if (self.name === 'frame2') {
+    $('#copyColorRange').removeClass('disabled').addClass('enabled');
     document.getElementById('splitDiv').removeChild(document.getElementById('slideAwayButton_split'));
     if(map !== null){
       map.setLevel(parent.frames[0].map.getLevel());
@@ -342,6 +344,12 @@ require(['esri/map',
   }, esriLogoDiv[0], 'before');
   domConstruct.place('<a id="logo-ifgi" href="http://ifgi.uni-muenster.de/" target="_blank"></a>', logoDiv);
 });
+
+function getColor() {
+  startColor = document.getElementById('colorPickerValueOne').value;
+  endColor = document.getElementById('colorPickerValueTwo').value;
+  return [startColor,endColor];
+}
 
 /**
  * Method for changing the active overlay layer
