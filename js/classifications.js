@@ -515,7 +515,7 @@ function addIndividualBreaks(){ //jshint ignore:line
  * method for automatic (equal) breaks
  */
 function classify(classification, yearInd, number, colorStart, colorEnd) {
-
+  console.log(self.name);
   switch (classification) {
     case 'equalInterval':
       colorizeLayer(addEqualBreaksNew(yearInd,number,colorStart,colorEnd));
