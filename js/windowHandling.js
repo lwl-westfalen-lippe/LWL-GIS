@@ -129,11 +129,3 @@ function switchLayerPane(toClassPane){
 		closeArrow('arrowSoziographisch');
 	}
 }
-
-require(["dijit/Dialog", "dojo/domReady!"], function(Dialog){
-    myDialog = new Dialog({
-        title: "Neues Thema anlegen",
-        href: "/webgis/new.html",
-        draggable: false
-    });
-});

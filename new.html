@@ -1,3 +1,60 @@
 <div>
-
+  <label for="thema">Thema: </label>
+  <input id="thema" type="text" name="" value="" placeholder="">
+</div>
+<div>
+  <label for="einheit">Einheit: </label>
+  <input id="einheit" type="text" name="" value="" placeholder="">
+</div>
+<hr>
+<table id="upload">
+  <thead>
+    <tr>
+      <th>Kreisname</th>
+      <th>Jahr</th>
+      <th>
+        <a class="enabled" onclick="addColumn();">
+          <img src="images/plus20.png">
+        </a>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Bottrop</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Gelsenkirchen</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Münster</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Borken</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Coesfeld</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Recklinghausen</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Steinfurt</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Warendorf</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Bielefeld</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Gütersloh</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Herford</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Höxter</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Lippe</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Minden-Lübbecke</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Paderborn</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Bochum</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Dortmund</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Hagen</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Hamm</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Herne</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Ennepe-Ruhr-Kreis</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Hochsauerlandkreis</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Märkischer Kreis</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Olpe</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Siegen-Wittgenstein</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Soest</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+    <tr><td>Unna</td><td><input type="number" name="" value="" placeholder=""></td></tr>
+  </tbody>
+</table>
+<hr>
+<div class="dijitDialogPaneActionBar">
+  <button data-dojo-type="dijit/form/Button" type="submit" onClick="return myFormDialog.isValid();">
+    OK
+  </button>
+  <button data-dojo-type="dijit/form/Button" type="button" onClick="hide()">
+    Cancel
+  </button>
 </div>
