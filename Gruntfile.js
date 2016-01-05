@@ -127,4 +127,10 @@ module.exports = function(grunt) {
       'watch'
     ]);
   });
+
+  grunt.registerTask('test', function (target) {
+    grunt.task.run([
+    	'jshint:all',
+    ]);
+  });
 };

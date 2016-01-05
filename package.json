@@ -4,7 +4,7 @@
   "description": "Educational WebGIS by LWL",
   "main": "index.js",
   "scripts": {
-    "test": "grunt --verbose"
+    "test": "grunt test --verbose"
   },
   "repository": {
     "type": "git",
