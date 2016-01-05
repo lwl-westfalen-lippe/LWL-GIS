@@ -21,14 +21,6 @@ var legend;
 var grid, store;
 
 /**
- * at this point the min and max values have to be entered manually for each layer.
- * this is not a good approach, they should be obtained directly from the data on the server
- * please change this!
- */
-var minValues = [0, 0, 107124, -15,  121, 12, 0, 7,  8, -6, 0, 0, 18, 3844, 1.86, 29,  4,  8, 15905,  9, 0];
-var maxValues = [0, 0, 651588,  21, 3187, 50, 0, 9, 13, 13, 3, 0, 39, 7375, 2.38, 49, 16, 34, 24771,  72, 0];
-
-/**
  * due to a bug in ArcGIS where invoking any method that re-centers the map a onPan() event is fired,
  * this counter is used to prevent an infinite loop of re-centering between the two maps in split-mode.
  */
@@ -54,12 +46,6 @@ var fIDmigrationshintergrund = 17;
 var fIDeinkommen = 18;
 var fIDkonfessionen = 19;
 var fIDkonfessionenDiagramme20082010 = 2;
-
-//the MapServer for the whole app:
-var mapServer = 'http://giv-learn2.uni-muenster.de/ArcGIS/rest/services/LWL/lwl_service/MapServer';
-//the Server for the feature Layer:
-var featureLayerServer = 'https://services1.arcgis.com/W47q82gM5Y2xNen1/arcgis/rest/services/westfalen_kreise/FeatureServer';
-var fLGemeinde = 'https://services1.arcgis.com/W47q82gM5Y2xNen1/arcgis/rest/services/westfalen_kreise/FeatureServer';
 
 /**
  * in split mode, synchronize zoom levels between both frames
@@ -127,8 +113,9 @@ function initLayers(){
     'esri/renderers/SimpleRenderer',
     'esri/Color',
     'esri/layers/LabelLayer',
-    'esri/layers/ArcGISDynamicMapServiceLayer'], function(FeatureLayer, TextSymbol, SimpleRenderer, Color, LabelLayer, ArcGISDynamicMapServiceLayer) {
-    featureLayer = new FeatureLayer(featureLayerServer + '/0', {
+    'esri/layers/ArcGISDynamicMapServiceLayer',
+    'data/Globals'], function(FeatureLayer, TextSymbol, SimpleRenderer, Color, LabelLayer, ArcGISDynamicMapServiceLayer,Globals) {
+    featureLayer = new FeatureLayer(Globals.getFeatureLayerServer() + '/0', {
       id: 'kreise',
       mode: FeatureLayer.MODE_ONDEMAND,
       outFields: ['Kreisname']
@@ -151,7 +138,7 @@ function initLayers(){
     // add the label layer to the map
     map.addLayer(labels);*/
 
-    operationalLayer = new ArcGISDynamicMapServiceLayer(mapServer, { 'id': 'collection' });
+    operationalLayer = new ArcGISDynamicMapServiceLayer(Globals.getMapServer(), { 'id': 'collection' });
     featureLayer.on('update-start', showLoadingIcon);
     featureLayer.on('update-end', hideLoadingIcon);
     operationalLayer.setVisibleLayers([fIDkreisnamen],true);

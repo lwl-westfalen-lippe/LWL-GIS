@@ -10,25 +10,16 @@ define(['dojo/_base/array'], function(arrayUtil) {
 
     /**
      * Returns the Minimum and Maximum values of
-     * all year-values from the given dataframe.
-     * @param  {[type]} dataframe [description]
-     * @param  {[type]} yearIndex [description]
-     * @return {[type]}           [description]
+     * an array.
+     * @param  {[type]} data [description]
+     * @return {[type]}      [description]
      */
-    getMinMax: function (dataframe, yearIndex) {
+    getMinMax: function (data) {
       var min = 99999999999;
       var max = -99999999999;
-      var temp = removeYearObject(dataframe);
-      arrayUtil.forEach(temp, function (item, index) {
-        if (yearIndex) {
-          if (min > item.Data[yearIndex]) { min = item.Data[yearIndex]; }
-          if (max < item.Data[yearIndex]) { max = item.Data[yearIndex]; }
-        } else {
-          arrayUtil.forEach(item.Data, function (item, index) {
-            if (min > item) { min = item; }
-            if (max < item) { max = item; }
-          });
-        }
+      arrayUtil.forEach(data, function (item, index) {
+        if (min > item) { min = item; }
+        if (max < item) { max = item; }
       });
 
       return [min, max];
